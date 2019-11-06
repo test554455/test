@@ -1,0 +1,568 @@
+sPRING versions
+---------------
+
+2.0
+
+	-supports Spring Annotations	
+	-Spring Test module was newly added to execute Junit | Mockito 		
+
+3.0
+
+	-Supports Java based  configuration 
+	-Supports Restful webservices 
+
+
+4.0
+
+	--Spring boot
+	--Spring Data
+	--@Requestmapping ---> @GetMapping,@PostMapping,@DeleteMapping,@PutMapping 
+	--@RestController
+
+5.0
+
+	--Introduced Reative Programming
+
+
+
+Dependency Injection/IOC: 
+
+------------------------
+All dependent object are automatically created and injected to required class, instead of creating the dependent object manually. 
+IOC also called as DI.
+The responisbility is transferred from the bean class and towards its dependecncies. 
+
+Adv with DI is promoting loose Coupling.
+ 
+AOP:
+----
+Separiting Bussiness logic from from System Services (such as Logging ,Tx managment,Security etc )
+
+Scopes:
+-------
+singleton
+prototype
+request
+response
+
+Wiring
+------
+byType (SI)
+byName (SI)
+
+Constructor Injection
+
+Using Annotation:
+----------------
+@AutoWire
+@Qualifier
+
+
+
+Maven : 
+=======
+
+POM.xml : 
+ -Stands [project Object model] 
+ -is xml file 
+ -Contains information about the project and configuration  which are used to build maven project 
+ 
+able to Provides the below configuration:
+-----------------------------------------
+
+1)Project Desc
+2)Repository
+3)Dependency Management
+
+
+
+1)Project Desc  Ex
+
+<Project >
+----
+----
+	<modelVersion>4.0.0</modelVersion>
+	<groupId> com.org.emp</groupId>
+	<artifactId>Employee</artifactId>
+	<version>1</version>
+	<packaging>jar</packaging>
+	<description>Desc about the project</description>
+----
+----
+ 	
+</project >
+
+Where <project> is root element in pom.xml
+<modelVerision> is Maven Version number
+<groupId> base package name
+<artifactId> project name
+<version> tag takes project Version number
+
+2)Repository
+ Repository nothing but a location,it will provide the required dependeencies to the maven project.
+
+	Maven has 3 different repo : 
+		a)Local Repository
+		b)Central Repo
+		c)Remote Repo
+
+Local Repo : it is location in our computer  , maven creates ath the below location 
+----------			"c:/user/<user name>/.m2/repository"
+
+Central Repo : it is Default Repo for Maven,it is located at "http://repo1.maven.org/Maven2" 
+------------
+Note : We can config other repos also in Maven , but we must have to configure in the pom.xml
+
+like Jboss nexus repository : 
+		https://repository.jboss.org/nexus/content/group/public
+		https://mvnrepository.com/repos
+
+3)Dependency Management : 
+
+Dependency is nothing but a Jar or Library (Collection of Jars) which are required to perform Compilation,Execution,Test,Debugging...
+
+before maven we used download all the required jars from net and used it
+
+With Maven ,we just have specify which libs required in pom.xml file
+
+All required dependencies will be downloaded and attach to the application libs.
+
+
+
+Spring Boot : 
+-------------
+
+
+OOP
+===
+Principles 
+	Polymorphism
+	Encapuslation 
+	Inhritance
+	Coupling
+	Cohesion
+
+
+
+
+------------------------------
+The coupling Principle in OOP is implemented as IOC in Spring,This is to achive loose coupling
+
+The cohesion Principle in OOP is implemented as AOP in Spring,Hence adv with AOP is Separation 
+
+
+------------------------------
+
+IOC Means Coupling 
+AOP means Cohesion
+
+
+
+Spring Boot  :
+==============
+
+
+Without spring boot the problems are:
+--------------------------------------
+
+1) We need to hunt for all the compatible libraries for the specific Spring version and add them.
+2) Most of the times we have to configure DataSource, JdbcTemplate, TransactionManager,
+DispatcherServlet, HandlerMapping, ViewResolver, etc beans in the same way.
+
+3) We should always deploy in external server.
+
+4) The problem with Spring component-scanning and autowiring is that it’s hard to see how all of the
+components in an application are wired together.
+
+
+
+With Spring Boot the advantages are:
+--------------------------------------
+
+1) Starters : 
+	 help easy dependency management.
+
+2) Auto configuration : 
+	for most of the commonly used built-in classes such as DataSource, JdbcTemplate,
+TransactionTemplate, DispatcherServlet, ViewResolver, HandlerMappig, etc using customizable
+properties.
+
+	 We need to enable auto configuration by adding either @EnableAutoConfiguraiton or
+@SpringBootApplication.
+
+
+3) Embedded Server
+	The spring-boot-starter-web automatically pulls spring-boot-starter-tomcat which starts tomcat as an
+embedded server. So we don’t have to deploy our application on any externally installed tomcat server.
+
+
+4) Actuators
+	The actuators let us look inside of our bean dependencies, autoconfig details, environment variables,
+configuration properties, memory usage, garbage collection, web requests, and data source usage.
+Note: a) Spring boot increases the speed of development because of Starters and autoconfiguration.
+b) One of the great outcomes of Spring Boot is that it almost eliminates the need to have traditional
+XML configurations.
+
+
+Note:
+a)
+Spring boot increases the speed of development because of Starters and autoconfiguration.
+
+b) One of the great outcomes of Spring Boot is that it almost eliminates the need to have traditional
+XML configurations.
+
+
+Spring Boot newly added in Spring 4 and offers following main features:
+
+Starter
+Auto Config
+Embedded Server
+Actuator
+
+
+
+Ref Doc 
+=======
+
+
+
+
+
+ 
+Annotation :
+
+Mime Type:
+Content Type: represent the Data format passing as part of request
+Accept : represnts the type of response data format
+
+RequestHeader
+ResponseHeader
+
+a)
+
+ReponseEntity  - can send response with status of the request and header information  
+
+b)
+
+@contoller - to define the controller layer 
+@RestController - to define the Rest Endpoints we use this ,combination of @controller + @ResponseBody 
+	
+	if we use @RestController then ResponseBody is optional 
+	if we use @Controller then ResponseBody is mandatory 
+	
+c)
+
+@RequestMapping : to define the End Point with Http method type (Gep/put/post/delete)	
+
+@GetMapping  - to get the reocrd details
+@postMapping - to create record in DB
+@putMapping - to update record 
+@deleteMapping - delete a record
+
+d)
+
+@SpringBootApplication - combination of 3 annotations,any class annoated with this @ is called Boot strap class.
+@ComponentScan
+same as @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan 
+
+
+e)@component -- > @controller ,@service, @Repository
+
+f)
+@RequestParam - to read path paramters 
+@pathParam
+@QueryParam - to read query params
+@RequestBody - to read request body data
+
+g)@AutoConfigure  - to wire beans together and container inject the instantiated/created object 
+@bean - creats object and register with Container so that it can be used in multiple places if require
+
+h)@entity
+@id
+@generatorValue
+@Table
+@columns
+@query
+
+
+
+HTTP Protocol
+=============
+The http protocol has:
+	1) Http request message  (Prepared by consumer)
+	2) Http response message (Prepared by provider)
+
+
+content-type = consume
+accept type =  produce
+
+
+The 'Content-Type' header name in http request message is used to represent payload format in http request message.
+The 'Accept' header name in http request message is used to represent expected payload format in http response message.
+
+
+The 'Content-Type' header name in http response message is used to represent payload format in http response message.
+Conclusion:
+   1) Both http request and http response headers have 'Content-Type' to represent their payload formats.
+   2) Only http request header additionally contains 'Accept' to represent expected payload format in http response message.
+   3) The 'Accept' in request header and 'Content-Type' in response header must be same then only client will accept and process http response message.
+
+
+Http Request Message
+--------------------
+POST /Hello/customers HTTP/1.1
+Accept: application/xml
+Content-Type: application/xml
+Content-Length: 196
+User-Agent: Java/1.7.0_25
+Host: 127.0.0.1:7000
+Connection: keep-alive
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+   <customer>    
+      <cid>1</cid>    
+      <cname>sree</cname>    
+      <email>sree@java.com</email>    
+     
+   </customer>
+
+
+GET /Hello/customers/1 HTTP/1.1
+Accept: application/xml
+...
+
+Http Response Message
+---------------------
+It is the responsibility of business component (developed by resource provider) to prepare and send http response message as given below:
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Server: Apache-Coyote/1.1
+Transfer-Encoding: chunked
+Date: Mon, 10 Nov 2014 09:45:34 GMT
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <customer>    
+      <cid>1</cid>    
+      <cname>sree</cname>    
+      <email>sree@java.com</email>    
+     
+   </customer>>
+
+
+Representation Oriented
+-----------------------
+
+
+The 'Content-Type' header name in http request message is used to represent payload format in http request message.
+The 'Accept' header name in http request message is used to represent expected payload format in http response message.
+
+Example:
+@Controller
+@RequestMapping("/customers")
+public class NewCustomerController{
+	//@RequestMapping(method=RequestMethod.POST, headers={"Content-Type=application/xml"})
+	@RequestMapping(method=RequestMethod.POST, consumes={"application/xml"})
+	public void insertCustomer(Customer c){ //resource method
+	
+	}
+	//@RequestMapping(method=RequestMethod.GET, headers={"Accept=application/xml"}, value="/{id}")
+	@RequestMapping(method=RequestMethod.GET, produces={"application/xml"}, value="/{id}")
+	public Customer readCustomer(@PathVariable("id") int cid){ //resource method
+		...
+	}
+	…
+}
+
+HttpMessageConverter
+====================
+Generally resource methods take an object and return an object.
+But different consumers will send and receive data in different formats such as xml, json, yaml, html, etc.
+
+Hence Spring API provides different message converters such as Jaxb2RootElementHttpMessageConverter, MappingJacksonHttpMessageConverter, etc to convert between object and client convinience formats such as xml, json, yaml, html, etc.
+
+The @RequestBody and @ResponseBody annotations are used to select appropriate http message converter based on 'Content-Type' or 'Accept' headers in http request message.
+
+Example:
+@Controller
+//@RestController   //Newly added in Spring 4.0
+@RequestMapping("/customers")
+public class NewCustomerController{
+	//@RequestMapping(method=RequestMethod.POST, headers={"Content-Type=application/xml"})
+	//@RequestMapping(method=RequestMethod.POST, consumes={"application/xml", "application/json"})
+	@PostMapping(consumes={"application/xml", "application/json"}) //Newly added in spring 4.3
+	public void insertCustomer(@RequestBody Customer c){ //resource method or controller method
+	
+	}
+	
+
+//@RequestMapping(method=RequestMethod.GET, headers={"Accept=application/xml"})
+	//@RequestMapping(method=RequestMethod.GET, produces={"application/xml", "application/json"})
+	@GetMapping(produces={"application/xml", "application/json"}) //Newly added in spring 4.3
+	//public @ResponseBody Customer readCustomer(…){ //resource method
+	public @ResponseBody Customer readCustomer(…){ //resource method or controller method 
+		...
+	        return cust;
+	}
+	…
+}
+
+
+
+
+Comparision between JAX-RS API annotations and SPRING with REST API annotations:
+   JAX-RS				
+   ======				
+   @Path				
+   @POST				
+   @GET						 
+   @Consumes("application/xml")		
+   @Produces("application/xml")		
+   @PathParam				
+					
+					
+					
+
+
+SPRING with REST
+================
+@RequestMapping
+RequestMethod.POST or @PostMapping
+RequestMethod.GET  or @GetMapping	
+consumes={"application/xml"}
+produces={"application/xml"}
+@PathVariable
+@RequestBody
+@ResponseBody
+@RestController
+
+
+
+Hibernate API			
+=============			
+Configuration			
+SessionFactory		
+Session			
+Transaction		
+buildSessionFactory() 	
+openSession()		
+beginTransaction() 	
+save()/persist()	
+load()/get()		
+update()/merge()	
+delete()		
+flush()			
+commit()		
+getNamedQuery() 	
+list()			
+pojos			
+HQL			
+..
+
+
+JP API
+===================
+Persistence
+EntityManagerFactory
+EntityManager
+EntityTransaction
+createEntityManagerFactory()
+createEntityManager()
+getTransaction()
+persist()
+find()
+merge()
+remove()
+flush()
+commit()
+createNamedQuery()
+getResultList()
+entities
+OQL	
+
+There are 2 types of service listeners:
+1) Http listeners
+	-tomcat, jetty, jboss, weblogic, etc
+	-http protocol
+	-Process REST endpoints
+
+2) Messaging listeners
+	-ActiveMQ, RabbitMQ, Kafka, etc
+	-JMS, AMQP, MQTT, etc
+	-Process Message endpoints
+
+-----------------------------------
+There are 2 types of endpoints:
+1) REST Endpoints
+	- Need http listener such as tomcat, jetty, etc
+	- Accessed using http protocol
+	- Used in case of synchronous communication
+        Ex: http://localhost:8081/fares/get
+
+2) Messaging endpoints
+	- Need messaging listener such as ActiveMQ/RabbitMQ/Kafka, etc
+	- Accessed using JMS/AMQP/MQTT protocol
+	- Used in case of asynchronous communication
+ 	Ex: @RabbitListener(queues = "SearchQ")
+        Ex: template.convertAndSend("SearchQ", map);
+--------------------------------------------------------
+There are 2 types of communications:
+  1) Synchronous communication
+  2) Asynchronous communication
+
+
+
+
+Microservice??
+=============
+Microservice is an architectural style which says decompose big project into smaller microservices which are autonomous, self-contained, loosely coupled, independently deployable and can contains its own presentation layer, business layer and dao layer later they communicate with each other.
+
+Microservices benefits:
+
+Supports polyglot architecture
+With microservices, architects and developers can choose fit for purpose architectures and technologies for each microservice i.e., each service can run with its own architecture or technology or different versions of same technology.
+
+Microservice use cases:
+
+Flipkart/amazon example
+
+
+Building microservices with boot:
+
+Traditionally a war was explicitly created and deployed on a Tomcat server. But microservices need to develop services as executables, self-contained JAR files with an embedded HTTP listener (such as tomcat or jetty). Spring boot is a tool to develop such kinds of services i.e., Spring Boot enables microservices development by packaging all the required runtime dependencies in a executable fat jar file.
+
+
+
+Communication styles
+Communication between microservices can be designed either in synchronous or asynchronous styles.
+
+Synchronous style
+
+Advantages:
+1) No messaging server overhead.
+2) The error will be propagated back to the caller immediately.
+Dis advantages:
+1) The caller has to wait until the request has been processed.
+2)Adds hard dependencies (tight coupling) between Microservices i.e., if one service in the chain fails, then the entire service chain will fail.
+
+Asynchronous style
+
+The asynchronous style is based on reactive event loop semantics which decouple microservices
+
+Advantages:
+1) Decouple Microservices
+2) Higher level of scalability because services are independent. Hence if there is a slowdown in one of the services, it will not impact the entire chain.
+Dis advantages:
+1) It has a dependency to an external messaging listener.
+2) It is complex to handle the fault tolerance of a messaging listener.
+
+
+
+MICROSERVICES CHALLENGES 
+============================
+Logging and monitoring
+--tracing logs is difficult
+
+
+Deployment
+ -- deploying each services is difficult task
+
