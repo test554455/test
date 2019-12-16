@@ -1,0 +1,82 @@
+Twelve-Factor apps
+
+Twelve-Factor Apps define a set of principles of developing applications targeting the cloud.
+
+Many organizations prefer to lift and shift their applications to the cloud. The application (in our case microservice) has to follow and check Twelve-factor rules before moving to cloud 
+
+i.e., in order to run microservices seamlessly across multiple clouds, it is important to follow Twelve-factor rules while developing cloud native microservices.
+
+1) Single code base
+
+-Each microservice has its own code base. 
+-Code typically managed in a source control system such as  Git, Subversion, etc.
+
+2) Bundling Dependencies(FAT JAR =Code+libs+server)
+-Each microservice should bundle all the required dependencies and execution libraries 
+-such as the HTTP listener(Server) and so on in the final executable bundle.
+
+3) Externalizing Configurations
+-This principle suggests the externalization of all configuration parameters from the code.
+-The microservices configuration parameters should be loaded from an external server.
+
+4)Backing Services are addressable
+
+-All backing services should be accessible through an addressable URL.
+- All services need to talk to some external resources during the life cycle of their execution. 
+-For example, they could be listening or sending messages to a messaging system, sending an e-mail, persisting data to database, and so on. 
+-All these services should be reachable through a URL
+
+5)Isolation between build, release, and run
+
+-This principle suggestes to have a Pipeline to  build, release, and run stages.
+
+-In microservices,
+ the build will creates fatJAR files(includes code	+libs+server).
+
+-Release phase, these executables will be combined with release configurations such as production URLs and so on and create a release version.
+
+6)Stateless, shared nothing processes
+
+-This principle suggests that processes should be stateless and share nothing. 
+-If the application is stateless, then it can be scaled out easily
+-If there is any requirement to store a state, it should be done with a backing database or in an in-memory cache
+
+7) Exposing services through port bindings
+
+-A Twelve-Factor application does not rely on an external web server. 
+-HTTP listeners such as Tomcat or Jetty have to be embedded in the service itself.
+Port binding is one of the fundamental requirements for microservices to be autonomous and self-contained. 
+
+8)Concurrency to scale out
+
+- services are designed to scale out. 
+- The services can be elastically scaled or shrunk  based on the traffic flow. 
+-Further to this, microservices may make use of parallel processing and concurrency frameworks to further speed up or scale up the transaction processing
+
+9) Disposability with minimal overhead
+
+-This principle advocates building applications with minimal startup and shutdown times with graceful shutdown support.
+-it is extremely important to keep the size of the application as thin as possible
+
+10) Development and production parity (prod=dev)
+
+-This principle states the importance of keeping development and production environments as identical as possible. 
+
+-In a development environment, we tend to run all of them on a single machine, whereas in production, we will facilitate independent machines to run each of these processes. 
+
+-This is primarily to manage the cost of infrastructure. 
+
+-The downside is that if production fails, there is no identical environment to re-produce and fix the issues.
+
+11) Externalizing logs
+
+-The solution to this is to use a centralized logging framework
+-Splunk, Greylog, Logstash, Logplex, ELK and Loggly are some examples of log shipping and analysis tools
+
+12) Package admin processes
+
+-Apart from application services, most applications provide admin tasks as well. 
+
+-This principle advises to use the same release bundle as well as an identical environment for both application services and admin tasks. 
+
+-Admin code should also be packaged along with the application code.

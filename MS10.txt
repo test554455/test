@@ -1,0 +1,5 @@
+What is microservices?
+Ans) Microservices is an architectural style which says decompose big applications into smaller services which are autonomous, self-contained, loosely coupled, independently deployable and each microservice has its own Presentation Layer, Service Layer and Model Layer
+
+
+Microservices are not invented rather many organizations such as Netflix, Amazon, and eBay successfully used the divide-and-conquer technique to functionally partition their monolithic application into smaller atomic units, each performing a single function.
