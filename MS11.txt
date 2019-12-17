@@ -1,0 +1,127 @@
+What is microservices?
+Ans)
+
+- Microservices is an architectural style
+- which says decompose big applications into smaller services
+- which are autonomous, self-contained, loosely coupled, independently deployable 
+-each microservice has its own Presentation Layer, Service Layer and Model Layer
+
+-Microservices are not invented rather many organizations such as Netflix, Amazon, and eBay successfully used divide-and-conquer technique
+
+-To functionally partition their monolithic application into smaller individual units, 
+
+-each performing a single function.
+
+MONOLITHIC
+----------
+M1 M2 M3
+PRESENTATION LAYER
+
+M1 M2 M3
+BUSINESS LAYER
+
+M1 M2 M3
+DB
+
+
+MS
+---------
+M1 | M2 | M3   - PRESENTATION LAYER
+
+
+M1 | M2 | M3   - BUSINESS LAYER
+
+
+M1 | M2 | M3   - DB
+
+
+MS1|MS2 | MS3  - MS NAME
+
+
+
+MS vs SOA
+---------
+-diff is in level of decomposition
+-while most soa impl provide service level decomposition
+-ms go further and decompose till Execution env.
+
+Principles of microservices:
+----------------------------
+below principles are a "must have" when designing and developing microservices
+
+-Single ms should have single business responsibility(sbr)
+-Ms are independently deployable. Hence they bundle all dependencies, Such as code, library and server,db(execution environments such as web servers)
+
+
+Char of ms:
+-----------
+Services are first class citizens
+Microservices are lightweight
+Microservices with polyglot architecture
+Automation in a microservices environment
+
+
+1)Services are first class citizens
+
+-In the microservices architecture, there is no more application development rather service development. -Microservices expose service endpoints as APIs 
+-and abstract all their  details i.e.,  implementation logic, architecture, and technologies are completely hidden behind the service API.
+
+-Messaging (JMS / AMQP / MQTT), HTTP, and REST are commonly used for interaction means communication between microservices.
+
+-Microservices are reusable business services.
+
+-Well-designed microservices are stateless and share nothing 
+-Microservices are discoverable.
+
+2) lightweight
+
+-microservice are single business capability, so it performs only one requirement.
+-select Tomcat/jetty instead of weblogic (app server)
+
+3)polyglot 
+-Ms may use diff tech such as
+	-one ms developed using the java /oracle
+	-one ms developed using the python/mysql
+
+4)Automation
+
+-Large number of microservices are hard to manage until and unless automation is in place.
+-should be automated from development to production
+-automated builds, automated testing, automated deployment, and automated Infrasturcture provisioning.
+
+jenkins,selenium,devops,cloud
+
+
+Microservices benefits
+----------------------
+1) Supports polyglot architecture
+2) Enabling experimentation and innovation
+With large monolithic applications, experimentation was not easy. With microservices, it is possible to write a small microservice to achieve the targeted functionality and plug it into the system in a reactive style.
+3) Selective scaling
+A monolithic application, packaged as a single WAR or an EAR, can only be scaled as a whole. In Microservices, each service could be independently scaled up or down depending on scalability requirement. As scalability can be selectively applied at each service, the cost of scaling is comparatively less with the microservices approach.
+4) Allowing substitution
+Microservices are self-contained, independent deployment modules enabling the substitution of one microservice with another similar microservice. Many large enterprises follow buy-versus-build policies to implement software systems. A common scenario is to build most of the functions in house and buy certain niche capabilities from specialists outside.
+5) Supporting Cloud
+6) Enabling DevOps
+Microservices are one of the key enablers of DevOps. DevOps is widely adopted as a practice in many enterprises, primarily to increase the speed of delivery and agility. DevOps advocates having agile development, high-velocity release cycles, automatic testing, and automated deployment.
+
+
+DESIGNING MS
+------------
+Identifying microservice boundaries
+Number Of Endpoints for a Microservice
+Communication styles
+Orchestration of Microservices
+Number Of VMs per MicroService
+Can microservices share data stores
+Shared Libraries
+
+MS Chanllenges:
+--------------
+Logging and provisoning
+Debugging apps with splunk
+need maintain more no of ms for build and deploy
+
+
+
+
